@@ -1,0 +1,138 @@
+/* Preguntas comprar y vender */
+.faq-container {
+  padding-top: 3rem;
+  background: linear-gradient(180deg, var(--color-primary), var(--color-light));
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+.faq-content-wrapper {
+  max-width: 1200px;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.seller-info {
+  min-height: auto;
+  background: linear-gradient(180deg, var(--color-accent-light), var(--color-lighter));
+  margin: 2rem 0;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 45%;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.seller-info h2 {
+  font-size: 1.5rem;
+  font-family: var(--font-logo);
+  color: var(--color-darker);
+  text-align: left;
+  margin: 1rem auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.faq-icon {
+  font-size: 1.5rem;
+  color: var(--color-darker);
+}
+
+.faq-title {
+  text-align: left;
+  color: var(--color-text);
+  font-family: var(--font-main);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.5rem;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.faq-arrow {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s;
+}
+
+.faq-title.active .faq-arrow {
+  transform: rotate(180deg);
+}
+
+.faq-content {
+  text-align: left;
+  color: var(--color-light);
+  background: linear-gradient(135deg, var(--color-dark), var(--color-darker));
+  padding: 10px;
+  border-left: 8px solid var(--color-primary);
+  margin: 5px 0;
+  border-radius: 5px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .seller-info {
+    width: 45%;
+  }
+}
+
+@media (max-width: 992px) {
+  .faq-title {
+    font-size: small;
+    gap: 0.5rem;
+  }
+  .faq-content {
+    font-size: small;
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-container {
+    padding: 1rem;
+  }
+  
+  .faq-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  
+  .seller-info {
+    width: 100%;
+    margin: 1rem 0;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  
+  .faq-title,
+  .faq-content {
+    width: 100%;
+    font-size: medium;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-title {
+    font-size: 0.9rem;
+  }
+  .faq-content {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+}
