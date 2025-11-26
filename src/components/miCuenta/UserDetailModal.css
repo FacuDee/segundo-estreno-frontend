@@ -241,8 +241,7 @@
 
 @media (max-width: 768px) {
   .modal-content {
-    width: 95%;
-    margin: 10px;
+    width: 100%;
   }
   
   .user-info-grid {

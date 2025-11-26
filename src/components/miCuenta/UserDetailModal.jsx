@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaTimes, FaShoppingBag, FaStore } from 'react-icons/fa';
+import { getApiUrl } from '../../config/api';
 import './UserDetailModal.css';
 
 const UserDetailModal = ({ user, isOpen, onClose }) => {
@@ -29,7 +30,7 @@ const UserDetailModal = ({ user, isOpen, onClose }) => {
       }
       
       if (endpoint) {
-        const response = await fetch(endpoint, {
+        const response = await fetch(getApiUrl(endpoint), {
           headers: {
             'Authorization': `Bearer ${token}`
           }
