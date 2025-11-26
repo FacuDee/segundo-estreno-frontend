@@ -98,9 +98,9 @@ const PrendasGestion = ({ userId, user }) => {
       const isAdmin = user?.rol === 'admin';
       let url;
       if (editingPrenda) {
-        url = isAdmin ? `/api/prenda/admin/${editingPrenda.id}` : `/api/prenda/${editingPrenda.id}`;
+        url = isAdmin ? getApiUrl(`/api/prenda/admin/${editingPrenda.id}`) : getApiUrl(`/api/prenda/${editingPrenda.id}`);
       } else {
-        url = '/api/prenda';
+        url = getApiUrl('/api/prenda');
       }
       
       // Preparar los datos con el formato correcto
