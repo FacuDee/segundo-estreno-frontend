@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { FaArrowLeft, FaShoppingCart, FaTshirt } from 'react-icons/fa';
 import { useCart } from '../../context/CartContext';
+import { getApiUrl } from '../../config/api';
 import './ProductDetail.css';
 
 // Componente principal de detalle de producto

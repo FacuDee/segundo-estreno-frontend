@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { FaShoppingCart, FaEye, FaSearch, FaFilter, FaDollarSign, FaTshirt, FaTimes } from "react-icons/fa";
 import { useCart } from "../../context/CartContext";
+import { getApiUrl } from "../../config/api";
 import "./ProductList.css";
 
 const ProductList = () => {
