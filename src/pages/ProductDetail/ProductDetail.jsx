@@ -3,6 +3,7 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { FaArrowLeft, FaShoppingCart, FaTshirt } from 'react-icons/fa';
 import { useCart } from '../../context/CartContext';
 import { getApiUrl } from '../../config/api';
+import bannerDetalle from '../../assets/banners/banner-detalle.webp';
 import './ProductDetail.css';
 
 // Componente principal de detalle de producto
@@ -211,7 +212,7 @@ const ProductDetail = () => {
       <div id="banner-publicidad">
         <a href="https://yazuka.com.ar/" target="_blank" className="banner-link">
           <img 
-            src="/src/assets/banners/banner-detalle.webp" 
+            src={bannerDetalle} 
             alt="Publicidad" 
             className="banner-img"
           />
