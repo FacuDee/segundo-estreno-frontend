@@ -4,6 +4,7 @@ import { FaShoppingBag, FaTrash, FaCreditCard } from 'react-icons/fa';
 import CartItem from './CartItem';
 import PaymentMethods from '../payment/PaymentMethods';
 import Swal from 'sweetalert2';
+import { getApiUrl } from '../../config/api';
 import './Cart.css';
 
 const Cart = () => {
@@ -46,7 +47,7 @@ const Cart = () => {
     
 
     try {
-      const response = await fetch('/api/transaccion', {
+      const response = await fetch(getApiUrl('/api/transaccion'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

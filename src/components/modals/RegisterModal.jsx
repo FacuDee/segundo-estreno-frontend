@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+import { getApiUrl } from "../../config/api";
 import "./Modal.css";
 
 const RegisterModal = ({ isOpen, onClose, onSwitchToLogin, onRegisterSuccess }) => {
@@ -21,7 +22,7 @@ const RegisterModal = ({ isOpen, onClose, onSwitchToLogin, onRegisterSuccess }) 
       return;
     }
     try {
-      const res = await fetch("/api/auth/register", {
+      const res = await fetch(getApiUrl("/api/auth/register"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, email, password }),

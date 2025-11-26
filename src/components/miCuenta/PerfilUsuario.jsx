@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaUser, FaEdit, FaSave, FaTimes } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { getApiUrl } from '../../config/api';
 
 const PerfilUsuario = ({ user, onUserUpdate }) => {
   
@@ -82,7 +83,7 @@ const PerfilUsuario = ({ user, onUserUpdate }) => {
       };
       
       // Actualizar en la BD usando el endpoint de perfil
-      const response = await fetch(`/api/usuario/${userId}/perfil`, {
+      const response = await fetch(getApiUrl(`/api/usuario/${userId}/perfil`), {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -257,7 +258,7 @@ const PerfilUsuario = ({ user, onUserUpdate }) => {
                     try {
                       const token = localStorage.getItem('token');
                       const body = { userId: userId, username: user.username || user.nombre };
-                      const res = await fetch(`/api/solicitud-vendedor`, {
+                      const res = await fetch(getApiUrl(`/api/solicitud-vendedor`), {
                         method: 'POST',
                         headers: {
                           'Content-Type': 'application/json',

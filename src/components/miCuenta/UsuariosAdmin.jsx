@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaUsers, FaEdit, FaTrash, FaSearch, FaEye } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { getApiUrl } from '../../config/api';
 import UserDetailModal from './UserDetailModal.jsx';
 const UsuariosAdmin = () => {
   const [usuarios, setUsuarios] = useState([]);
@@ -21,7 +22,7 @@ const UsuariosAdmin = () => {
   const fetchSolicitudes = async () => {
     try {
       const token = localStorage.getItem('token');
-  const res = await fetch('/api/solicitud-vendedor', {
+  const res = await fetch(getApiUrl('/api/solicitud-vendedor'), {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.ok) {
@@ -40,7 +41,7 @@ const UsuariosAdmin = () => {
       const token = localStorage.getItem('token');
 
       
-      const response = await fetch('/api/usuario', {
+      const response = await fetch(getApiUrl('/api/usuario'), {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -96,7 +97,7 @@ const UsuariosAdmin = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`/api/usuario/${userId}`, {
+      const response = await fetch(getApiUrl(`/api/usuario/${userId}`), {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -152,7 +153,7 @@ const UsuariosAdmin = () => {
     if (result.isConfirmed) {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch(`/api/usuario/${userId}`, {
+        const response = await fetch(getApiUrl(`/api/usuario/${userId}`), {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`
@@ -274,7 +275,7 @@ const UsuariosAdmin = () => {
                         if (!confirm.isConfirmed) return;
                         try {
                           const token = localStorage.getItem('token');
-                          const res = await fetch(`/api/solicitud-vendedor/${solicitud.id_solicitud || solicitud.id}/status`, {
+                          const res = await fetch(getApiUrl(`/api/solicitud-vendedor/${solicitud.id_solicitud || solicitud.id}/status`), {
                             method: 'PUT',
                             headers: {
                               'Content-Type': 'application/json',
@@ -312,7 +313,7 @@ const UsuariosAdmin = () => {
                         if (!confirm.isConfirmed) return;
                         try {
                           const token = localStorage.getItem('token');
-                          const res = await fetch(`/api/solicitud-vendedor/${solicitud.id_solicitud || solicitud.id}/status`, {
+                          const res = await fetch(getApiUrl(`/api/solicitud-vendedor/${solicitud.id_solicitud || solicitud.id}/status`), {
                             method: 'PUT',
                             headers: {
                               'Content-Type': 'application/json',

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaTshirt, FaTrash, FaUser, FaTag, FaSearch, FaFilter } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { getApiUrl } from '../../config/api';
 import './GestionarTodasPrendas.css';
 
 const GestionarTodasPrendas = () => {
@@ -21,7 +22,7 @@ const GestionarTodasPrendas = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem('token');
-      const response = await fetch('/api/prenda/admin/todas', {
+      const response = await fetch(getApiUrl('/api/prenda/admin/todas'), {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -47,7 +48,7 @@ const GestionarTodasPrendas = () => {
 
   const fetchCategorias = async () => {
     try {
-      const response = await fetch('/api/categoria');
+      const response = await fetch(getApiUrl('/api/categoria'));
       const data = await response.json();
       setCategorias(data);
     } catch (error) {
@@ -70,7 +71,7 @@ const GestionarTodasPrendas = () => {
     if (result.isConfirmed) {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch(`/api/prenda/admin/${prendaId}`, {
+        const response = await fetch(getApiUrl(`/api/prenda/admin/${prendaId}`), {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`

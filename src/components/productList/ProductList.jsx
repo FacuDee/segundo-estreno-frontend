@@ -41,7 +41,7 @@ const ProductList = () => {
   const fetchPrendas = async () => {
     try {
       setLoading(true);
-      const response = await fetch("/api/prenda");
+      const response = await fetch(getApiUrl("/api/prenda"));
       const data = await response.json();
       setPrendas(data);
     } catch (error) {
@@ -53,7 +53,7 @@ const ProductList = () => {
 
   const fetchCategorias = async () => {
     try {
-      const response = await fetch("/api/categoria");
+      const response = await fetch(getApiUrl("/api/categoria"));
       const data = await response.json();
       setCategorias(data);
     } catch (error) {

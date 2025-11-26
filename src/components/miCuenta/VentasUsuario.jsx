@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaStore, FaCalendarAlt, FaDollarSign, FaUser } from 'react-icons/fa';
+import { getApiUrl } from '../../config/api';
 
 const VentasUsuario = ({ userId }) => {
   const [ventas, setVentas] = useState([]);
@@ -13,7 +14,7 @@ const VentasUsuario = ({ userId }) => {
   const fetchVentas = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`/api/transaccion/vendedor/${userId}`, {
+      const response = await fetch(getApiUrl(`/api/transaccion/vendedor/${userId}`), {
         headers: {
           'Authorization': `Bearer ${token}`
         }

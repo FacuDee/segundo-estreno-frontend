@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaTshirt, FaPlus, FaEdit, FaTrash, FaEye } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { getApiUrl } from '../../config/api';
 import './PrendasGestion.css';
 
 const PrendasGestion = ({ userId, user }) => {
@@ -28,7 +29,7 @@ const PrendasGestion = ({ userId, user }) => {
   const fetchPrendas = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`/api/prenda/usuario/${userId}`, {
+      const response = await fetch(getApiUrl(`/api/prenda/usuario/${userId}`), {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -70,7 +71,7 @@ const PrendasGestion = ({ userId, user }) => {
 
   const fetchCategorias = async () => {
     try {
-      const response = await fetch('/api/categoria');
+      const response = await fetch(getApiUrl('/api/categoria'));
       if (response.ok) {
         const data = await response.json();
         setCategorias(data);
@@ -172,7 +173,7 @@ const PrendasGestion = ({ userId, user }) => {
     if (result.isConfirmed) {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch(`/api/prenda/${id}`, {
+        const response = await fetch(getApiUrl(`/api/prenda/${id}`), {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`

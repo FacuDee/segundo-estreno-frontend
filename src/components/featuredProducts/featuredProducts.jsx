@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { getApiUrl } from "../../config/api";
 import "./FeaturedProducts.css";
 
 const FeaturedProducts = () => {
@@ -14,7 +15,7 @@ const FeaturedProducts = () => {
   const fetchProductosDestacados = async () => {
     try {
       setLoading(true);
-      const response = await fetch("/api/prenda");
+      const response = await fetch(getApiUrl("/api/prenda"));
 
       if (!response.ok) {
         throw new Error("Error al cargar productos");

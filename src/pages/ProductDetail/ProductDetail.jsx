@@ -27,7 +27,7 @@ const ProductDetail = () => {
   const fetchPrendaDetail = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`/api/prenda/${id}`);
+      const response = await fetch(getApiUrl(`/api/prenda/${id}`));
       if (!response.ok) {
         throw new Error('Prenda no encontrada');
       }
@@ -50,7 +50,7 @@ const ProductDetail = () => {
     
     // Obtener todas las prendas
     try {
-      const response = await fetch('/api/prenda');
+      const response = await fetch(getApiUrl('/api/prenda'));
       const data = await response.json();
       
       // Filtrar productos de la misma categoría, excluyendo el actual

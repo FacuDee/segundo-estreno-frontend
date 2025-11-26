@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import Swal from "sweetalert2";
+import { getApiUrl } from "../../config/api";
 import "./Modal.css";
 
 const LoginModal = ({ isOpen, onClose, onSwitchToRegister, onLoginSuccess, prefilledData }) => {
@@ -26,7 +27,7 @@ const LoginModal = ({ isOpen, onClose, onSwitchToRegister, onLoginSuccess, prefi
     e.preventDefault();
     setError("");
     try {
-      const res = await fetch("/api/auth/login", {
+      const res = await fetch(getApiUrl("/api/auth/login"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
