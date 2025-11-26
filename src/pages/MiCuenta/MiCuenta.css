@@ -808,6 +808,7 @@
 }
 
 .user-detail-modal .modal-header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -840,6 +841,7 @@
 }
 
 .user-detail-modal .modal-body {
+  width: 100%;
   padding: 2rem;
 }
 
