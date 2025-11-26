@@ -161,12 +161,17 @@ const ProductList = () => {
   // Aplicar URL -> estado (cuando el usuario usa atrás/adelante o llega con query)
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    setSearchTerm(params.get("search") || "");
-    setFilterCategory(params.get("category") || "");
-    setPriceFilter(params.get("price") || "");
-    setSizeFilter(params.get("size") || "");
-    setCurrentPage(parseInt(params.get("page")) || 1);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const newSearch = params.get("search") || "";
+    const newCategory = params.get("category") || "";
+    const newPrice = params.get("price") || "";
+    const newSize = params.get("size") || "";
+    const newPage = parseInt(params.get("page")) || 1;
+    
+    setSearchTerm(newSearch);
+    setFilterCategory(newCategory);
+    setPriceFilter(newPrice);
+    setSizeFilter(newSize);
+    setCurrentPage(newPage);
   }, [location.search]);
 
   // Resetear página a 1 al cambiar filtros desde UI
