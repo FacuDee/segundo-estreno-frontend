@@ -164,6 +164,11 @@ main {
     margin: 0;
     padding: 0;
   }
+
+  .container-padre h2 {
+    font-size: 1.1rem;
+    padding: 0.5rem;
+  }
   
   .nosotros-info {
     text-align: center;
